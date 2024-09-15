@@ -84,7 +84,7 @@
                   <script type="text/javascript">
                      alert('Email has already been registered');
                   </script>
-               <span class="text-danger">{{ $message }}</span>
+               <span class="text-danger">{{ $message }}</span>      
                @enderror
                <label class="lable" for="referer">Referer Code (Optional</label>
                <input type="text" id="referer" name="referer" placeholder="Referer Code"><br>
