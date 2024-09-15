@@ -73,12 +73,12 @@
                   </script>
                     <div class="rates">{{ session('success') }}</div>
                 @endif
-               <label class="hide" for="name">Name</label>
+               <label class="lable" for="name">Name</label>
                <input type="text" id="name" name="name" placeholder="Name"><br>
                @error('name')
                   <span class="text-danger">{{ $message }}</span>
               @enderror
-               <label class="hide" for="email">Email</label>
+               <label class="lable" for="email">Email</label>
                <input type="email" id="email" name="email" placeholder="Email"><br>
                @error('email')
                   <script type="text/javascript">
@@ -86,7 +86,7 @@
                   </script>
                <span class="text-danger">{{ $message }}</span>
                @enderror
-               <label class="hide" for="referer">Referer Code</label>
+               <label class="lable" for="referer">Referer Code (Optional</label>
                <input type="text" id="referer" name="referer" placeholder="Referer Code"><br>
                @error('referer')
                   <span class="text-danger">{{ $message }}</span>
