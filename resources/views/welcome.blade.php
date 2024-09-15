@@ -57,7 +57,7 @@
    </header>
    <div class="jumbotron-container">
       <div class="jumbotron-left">
-         <h2 class="jumbotron-header">urray!!🎉🎉🎉
+         <h2 class="jumbotron-header">Hurray!!🎉🎉🎉
                AfricTv is launching soon! Join our waitlist now and be the first to access a vast library of Global content, from movies to music, TrendingNews, Education information, and more! </h2>
                <a href="{{ url('promoters') }}" class="btn btn-fill btn-large" style="background: darkgreen;">Continue as Promoter</a>
       </div>
@@ -74,19 +74,19 @@
                     <div class="rates">{{ session('success') }}</div>
                 @endif
                <label class="lable" for="name">Name</label>
-               <input type="text" id="name" name="name" placeholder="Name"><br>
+               <input type="text" id="name" name="name" placeholder="Name" required><br>
                @error('name')
                   <span class="text-danger">{{ $message }}</span>
               @enderror
                <label class="lable" for="email">Email</label>
-               <input type="email" id="email" name="email" placeholder="Email"><br>
+               <input type="email" id="email" name="email" placeholder="Email" required><br>
                @error('email')
                   <script type="text/javascript">
                      alert('Email has already been registered');
                   </script>
                <span class="text-danger">{{ $message }}</span>      
                @enderror
-               <label class="lable" for="referer">Referer Code (Optional</label>
+               <label class="lable" for="referer">Referer Code (Optional)</label>
                <input type="text" id="referer" name="referer" placeholder="Referer Code"><br>
                @error('referer')
                   <span class="text-danger">{{ $message }}</span>
@@ -95,7 +95,8 @@
          </form>
       </div>
    </div>
-   <script defer async>
+   <script defer async> 
+        // Get the URL parameters
       (() => {
          const loader = document.getElementById('loader');
          const scrollBar = document.getElementsByClassName('scroll-bar')[0];
@@ -104,6 +105,15 @@
             scrollBar.classList.remove('scroll-bar')
          });
       })();
+       const urlParams = new URLSearchParams(window.location.search);
+        
+        // Check if "referer_code" exists in the URL
+        const refererCode = urlParams.get('referer_code');
+        
+        if (refererCode) {
+          // Set the input value to the referer_code if it exists
+          document.getElementById('referer').value = refererCode;
+        }
    </script>
    <script  defer async src="assets/js/toggleHamburger.js"></script>
 </body>

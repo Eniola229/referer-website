@@ -81,10 +81,10 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="d-flex flex-column h-100">
-                    <p class="mb-1 pt-2 text-bold">Your referer code</p>
+                    <p class="mb-1 pt-2 text-bold">Your referer link</p>
                     <p class="mb-5">The more you share, the more you earn!</p>
                     <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                       {{ Auth::user()->unique_id }}
+                      https://normadicnarratives.ca/rer/?referer_code={{ Auth::user()->unique_id }}
                             <i class="fas fa-copy text-sm ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
