@@ -163,7 +163,7 @@
                         </div>
                       </td>
                       <td>
-                         <a class="nav-link" href="{{ url('promoter-info', [$user->id]) }}">
+                         <a class="nav-link" href="{{ url('promoter-info', $user->id) }}">
                               <button class="btn btn-primary">View</button>
                           </a>
                       </td>
