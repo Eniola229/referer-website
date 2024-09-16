@@ -10,7 +10,13 @@ use App\Http\Controllers\Promoter\DashboardController;
 use App\Http\Controllers\Promoter\RefererController;
 use App\Http\Controllers\Promoter\PrivacyController;
 
-use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\Route; 
+//ADMIN
+use App\Http\Controllers\Admin\AuthAdminController;
+use App\Http\Controllers\Admin\PromotersController;
+use App\Http\Controllers\Admin\PaymentController;
+
 
 
 
@@ -38,5 +44,20 @@ Route::middleware('auth')->group(function () {
     //POLICY
      Route::get('policy', [PrivacyController::class, 'view'])->name('policy');
 });
+
+
+//ADMIN LOGIN
+Route::get('admin-login', [AuthAdminController::class, 'index'])->name('admin-login');
+Route::post('post-login', [AuthAdminController::class, 'postLogin'])->name('admin-login.post'); 
+
+Route::get('admin-logout', [AuthAdminController::class, 'logout'])->name('admin-logout');
+
+Route::get('admin-dashboard', [AuthAdminController::class, 'dashboard'])->name('admin-dashboard'); 
+Route::get('admin-promoters', [PromotersController::class, 'view'])->name('admin-promoters');
+Route::get('admin-waitlist', [PromotersController::class, 'waitlist'])->name('admin-waitlist');
+Route::get('admin-payment', [PaymentController::class, 'view'])->name('admin-payment');
+Route::post('admin-make-payment', [PaymentController::class, 'payment'])->name('admin-make-payment');
+
+
 
 require __DIR__.'/auth.php';

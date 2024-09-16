@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    Privacy Policy - AfricTv Wait list
+    Waitlist - AfricTv Wait list
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -23,41 +23,92 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-   @include('components.header')
+   @include('components.side')
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-     @include('components.nav')
+     @include('components.admin-nav')
     <!-- End Navbar -->
-   
-    <div class="m-5">
-    <!-- <h1>Privacy Policy</h1> -->
-      <h1>Payment Privacy Policy</h1>
-    
-    <p>We collect and use your personal and payment information to:</p>
-    <ul>
-        <li>Process transactions securely</li>
-    </ul>
-
-    <h2>How You Can Collect Your Payment</h2>
-    <p>When you have reached a certain amount of <span class="highlight">one thousand naira</span>, you can withdraw your money by providing the following details:</p>
-    <ul>
-        <li><span class="highlight">Name:</span></li>
-        <li><span class="highlight">Phone number:</span></li>
-        <li><span class="highlight">Payment information:</span> (credit/debit card or bank details) to process your payment.</li>
-    </ul>
-    <p><span class="highlight">Note:</span> Within the next hour, you will receive your payment.</p>
-
-    <p>We protect your data with encryption and secure storage. We do not share your information with third parties.</p>
-
-    <div class="contact">
-        <h2>Contact Us</h2>
-        <p><span class="highlight">AfricTv</span></p>
-        <p>Email: <a href="mailto:africteam@gmail.com">africteam@gmail.com</a></p>
-    </div>
-
-    <p>By using our service, you agree to this policy.</p>
-    </div>
-    
+    <div class="container-fluid py-4">
+      <div class="row my-4">
+        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6>Total Waitlist's</h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1"> count waitlist</span> so far {{ $usersCount }}
+                  </p>
+                </div>
+               <!--  <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Name</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Joined</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     @if($users->isNotEmpty())
+                        @foreach($users as $user)
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->email }} </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">{{ $user->created_at->format('F j, Y, g:i A') }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                     @endforeach
+                    @else
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Oops! Waitlist Empty</h6>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+  
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">

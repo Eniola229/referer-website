@@ -61,21 +61,29 @@ class WithdrawController extends Controller
         // Validate request input
         $request->validate([
             'userId' => 'required|exists:users,id',
+            'amount' => 'required|numeric|min:1000',
         ]);
 
-        // Update or create a request record for the authenticated user
-        $userRequest = RequestMoney::create([
-            'user_id' => Auth::id(),
-        ]);
 
         // Get the referer user and check if balance is sufficient
         $refererUser = User::findOrFail($request->userId);
         
+        if (Auth::user()->balance < $request->amount) {
+             return redirect()->back()->with('error', 'Insufficient balance. Unable to process request.');
+        }
+
         if ($refererUser->balance >= 1000.0) {
             // Deduct the amount from the referer user's balance
-            $refererUser->balance -= 1000.0;
+            $refererUser->balance -= $request->amount;
             $refererUser->save();
-            
+             
+
+            // Update or create a request record for the authenticated user
+            $userRequest = RequestMoney::create([
+                'user_id' => Auth::id(),
+                'amount' => $request->amount,
+            ]);   
+
             // Redirect back with a success message
             return redirect()->back()->with('success', 'Request successfully sent! Your money is on its way.');
         } else {

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('account_number');
             $table->string('reference_code');
             $table->string('reciept');
+            $table->string('recieptId');
             $table->decimal('amount', 10, 2);
             $table->enum('status', ['PENDING', 'PAID'])->default('PENDING');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

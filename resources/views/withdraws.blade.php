@@ -120,14 +120,14 @@
                 <div class="m-2">
                   <!-- Success Message -->
                 @if (session('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success"  style="color: white;">
                         {{ session('success') }}
                     </div>
                 @endif
 
                 <!-- Error Message -->
                 @if (session('error'))
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="color: white;">
                         {{ session('error') }}
                     </div>
                 @endif
@@ -137,7 +137,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li  style="color: white;">{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -275,7 +275,8 @@
             </div>
             <div class="card-body p-3 pb-0">
            <ul class="list-group">
-                    @if($balance > 1000)
+            @if ($withdraw)
+                @if($balance > 1000)
                      <h3 class="mb-0 m-2">Request Payment</h3>
                 <p class="mb-0 m-2">The money will be sent to you within one hour of processing.</p>
                   <hr>
@@ -283,6 +284,10 @@
                   @csrf
                   @method('PUT')
                   <input type="hidden" class="form-control" name="userId" placeholder="Enter account name" value="{{ Auth::user()->id }}">
+                  <div class="mb-3">
+                        <label for="account" class="form-label">Amount</label>
+                        <input type="number" class="form-control" name="amount" placeholder="Amount" id="account" required>
+                      </div>
                   <button type="submit" class="btn btn-primary">Request Payment</button>
               </form>
 
@@ -290,7 +295,6 @@
                   <p class="mb-0 m-2">Payment powered and secured by <span style="color: red; font-weight: bold;">AfricPay (APAY)</span></p>
                        
                     @else
-
                     @if($request)
                        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                             <div class="d-flex flex-column">
@@ -304,6 +308,13 @@
                             </div>
                         </li>
                     @endif
+                    @endif
+                    @else 
+                          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                            <div class="d-flex flex-column">
+                                <h6 class="mb-1 text-dark font-weight-bold text-sm">Kindly Update your Account Details.</h6>
+                            </div>
+                        </li>
                     @endif
                 </ul>
             </div>

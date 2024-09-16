@@ -30,7 +30,8 @@ class Payment extends Model
         "reference_code",
         "status",
         "reference_code",
-        "reciept"
+        "reciept",
+        "recieptId"
     ];
 
 }

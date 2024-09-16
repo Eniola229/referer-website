@@ -69,9 +69,15 @@
                 @csrf
                @if (session('success'))
                   <script type="text/javascript">
-                     alert('Nice One! Wait list successfully regitered');
+                     alert('Nice One! Wait list successfully registered');
                   </script>
                     <div class="rates">{{ session('success') }}</div>
+                @endif
+                @if (session('email'))
+                  <script type="text/javascript">
+                     alert('Email is invalid');
+                  </script>
+                    <div class="rates">{{ session('email') }}</div>
                 @endif
                <label class="lable" for="name">Name</label>
                <input type="text" id="name" name="name" placeholder="Name" required><br>
@@ -81,9 +87,7 @@
                <label class="lable" for="email">Email</label>
                <input type="email" id="email" name="email" placeholder="Email" required><br>
                @error('email')
-                  <script type="text/javascript">
-                     alert('Email has already been registered');
-                  </script>
+            
                <span class="text-danger">{{ $message }}</span>      
                @enderror
                <label class="lable" for="referer">Referer Code (Optional)</label>
