@@ -162,9 +162,11 @@
                           </div>
                         </div>
                       </td>
-                       <a class="nav-link" href="{{ route('promoter-info', $user->id) }}">
+                      <td>
+                         <a class="nav-link" href="{{ route('promoter-info', $user->id) }}">
                           <button class="btn btn-primary">Veiw</button> 
                         </a>
+                      </td>
                     </tr>
                     @endforeach
                     @else
