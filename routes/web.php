@@ -57,6 +57,7 @@ Route::get('admin-promoters', [PromotersController::class, 'view'])->name('admin
 Route::get('admin-waitlist', [PromotersController::class, 'waitlist'])->name('admin-waitlist');
 Route::get('admin-payment', [PaymentController::class, 'view'])->name('admin-payment');
 Route::post('admin-make-payment', [PaymentController::class, 'payment'])->name('admin-make-payment');
+Route::get('promoter-info/{id}', [PromotersController::class, 'promoters'])->name('promoter-info');
 
 
 

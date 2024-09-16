@@ -69,7 +69,7 @@ class AuthAdminController extends Controller
     {  
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:admins', // Check against admins table
+            'email' => 'required|email|unique:admins',
             'password' => 'required|min:6',
         ]);
 
