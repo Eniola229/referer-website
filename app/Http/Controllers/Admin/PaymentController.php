@@ -19,7 +19,7 @@ class PaymentController extends Controller
             $requests = RequestMoney::with(['user', 'withdraw'])->get();
             $requestsCount = RequestMoney::all()->count();
 
-            $payments = Payment::all();
+           $payments = Payment::with('user')->get();
 
             if (Auth::guard('admins')->check()) {
                return view('admin.admin-payment', compact('payments', 'requestsCount', 'requests'));
@@ -47,16 +47,11 @@ class PaymentController extends Controller
         // Combine them into the desired format
         $referenceCode = "BANK-{$randomDigits}-{$randomLetters}";
 
-
-    
-
-         if ($request->hasFile('receipt')) {
-            try {
-                $uploadedFile = $request->file('receipt')->getRealPath();
+            if ($request->hasFile('receipt')) {
                 $uploadCloudinary = cloudinary()->upload(
-                    $uploadedFile,
+                    $request->file('receipt')->getRealPath(),
                     [
-                        'folder' => 'africtv/referers/receipts',
+                        'folder' => 'africtv/referer/payment',
                         'resource_type' => 'auto',
                         'transformation' => [
                             'quality' => 'auto',
@@ -64,18 +59,12 @@ class PaymentController extends Controller
                         ]
                     ]
                 );
-
-                // Log the response
-                \Log::info('Cloudinary Upload Response:', $uploadCloudinary->getArrayCopy());
-
-                $receiptUrl = $uploadCloudinary->getSecurePath();
-                $publicId = $uploadCloudinary->getPublicId();
-
-            } catch (\Exception $e) {
-                \Log::error('Cloudinary Upload Error:', ['error' => $e->getMessage()]);
-                return redirect()->back()->withErrors(['upload_error' => 'Failed to upload receipt. Please try again.'])->withInput();
+                $imageUrl = $uploadCloudinary->getSecurePath();
+                $imageId = $uploadCloudinary->getPublicId();
+            } else {
+                $imageUrl = "no file uploaded";
+                $imageId = "no file uploaded";
             }
-        }
 
 
         $status = "PAID"; // Fixed typo
@@ -91,8 +80,8 @@ class PaymentController extends Controller
                 'account_number' => $request->input('account_number'),
                 'reference_code' => $referenceCode,
                 'status' => $status, // Fixed typo
-                'receipt' => $receiptUrl,
-                'receiptId' => $publicId,
+                'receipt' => $imageUrl,
+                'receiptId' => $imageId,
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['database_error' => 'Failed to create payment record. Please try again.'])->withInput();

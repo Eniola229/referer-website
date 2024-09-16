@@ -83,9 +83,10 @@
                   <div class="d-flex flex-column h-100">
                     <p class="mb-1 pt-2 text-bold">Your referer link</p>
                     <p class="mb-5">The more you share, the more you earn!</p>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                      https://normadicnarratives.ca/rer/?referer_code={{ Auth::user()->unique_id }}
-                            <i class="fas fa-copy text-sm ms-1" aria-hidden="true"></i>
+                   <a id="copyLink" class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                        https://normadicnarratives.ca/rer/?referer_code={{ Auth::user()->unique_id }}
+                        <i class="fas fa-copy text-sm ms-1" aria-hidden="true"></i>
+                    </a>
                     </a>
                   </div>
                 </div>
@@ -215,8 +216,22 @@
   <script src="pro/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="pro/js/plugins/chartjs.min.js"></script>
   <script>
-    var ctx = document.getElementById("chart-bars").getContext("2d");
 
+      document.getElementById('copyLink').addEventListener('click', function () {
+        // Create a temporary textarea element to copy the content
+        var tempInput = document.createElement('textarea');
+        tempInput.value = "https://normadicnarratives.ca/rer/?referer_code={{ Auth::user()->unique_id }}";
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        
+        // Optionally, show an alert or toast notification
+        alert("Link copied to clipboard!");
+    });
+
+    var ctx = document.getElementById("chart-bars").getContext("2d");
     new Chart(ctx, {
       type: "bar",
       data: {

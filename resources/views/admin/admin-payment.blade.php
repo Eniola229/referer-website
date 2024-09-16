@@ -157,7 +157,7 @@
                             <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="{{ $request->amount }}" readonly>
 
                             <label for="receipt">Receipt</label>
-                            <input type="file" class="form-control" id="receipt" name="receipt" placeholder="Enter receipt" required>
+                            <input type="file" class="form-control" id="receipt" name="receipt" accept=".jpg, .jpeg, .png" required>
 
                             <button class="btn btn-primary" type="submit">Send Payment Proof</button>
                         </form>
@@ -181,7 +181,89 @@
               </div>
             </div>
           </div>
+             <hr>
+
+              <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Email</th>
+
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reciept</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Requested</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     @if($payments->isNotEmpty())
+                        @foreach($payments as $payment)
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ $payment->user->name }}</h6>
+                          </div>
+                        </div>
+                      </td>
+                          <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ $payment->user->email }}</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $payment->amount }} </span>
+                      </td>
+                       <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $payment->status }} </span>
+                      </td>
+                       <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> <a href="{{ $payment->reciept }}">Reciept</a> </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">{{ $payment->created_at->format('F j, Y, g:i A') }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                         <td class="align-middle text-center text-sm">
+                          <button onclick="showPopup()">
+                          <i class="fas fa-credit-card ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Payment"></i>
+                        </button>
+                         </td>
+                    </tr>
+                     @endforeach
+                    @else
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Oops! No payment has been made yet</h6>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+        </div>
+
+     
   
       <footer class="footer pt-3  ">
         <div class="container-fluid">

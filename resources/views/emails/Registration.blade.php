@@ -72,7 +72,7 @@
             <p>Best regards,<br>The AfricTv Team</p>
         </div>
         <div class="footer">
-            <p>If you have any questions, feel free to reply to this email or contact us at africteam@bgmail.com.</p>
+            <p>If you have any questions, feel free to reply to this email or contact us at africteam@gmail.com.</p>
         </div>
     </div>
 </body>

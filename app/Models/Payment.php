@@ -34,4 +34,10 @@ class Payment extends Model
         "recieptId"
     ];
 
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
