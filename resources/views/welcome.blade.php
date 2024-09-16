@@ -3,9 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Star Hotels Helps you Discover The Perfect Balance
-   Of Hospitality, Luxury And
-   Comfort.">
+   <meta name="description" content="AfricTv is launching soon">
    <title>AfricTv</title>
    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="./assets/css/global-header.css">
