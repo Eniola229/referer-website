@@ -73,6 +73,7 @@
 
                </div>
                <!-- Top Right Text -->
+               
                <div class="col">
                   <h3 class="right-title">What do we have here?? </h3>
                   <p>
@@ -116,7 +117,7 @@
                 <li>
                     <div>
                         <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                        <p class="list-text">6. Earn N30 per person</p>
+                        <p class="list-text">6. Earn N50 per person</p>
                     </div>
                 </li>
                 <li>

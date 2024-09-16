@@ -61,7 +61,7 @@
                 <li><strong>Referral Code:</strong> {{$user->unique_id}}</li>
             </ul>
 
-            <p>Share this referral code with your friends, family, and followers. For every successful sign-up using your referral code, you will earn N30.</p>
+            <p>Share this referral code with your friends, family, and followers. For every successful sign-up using your referral code, you will earn N50.</p>
 
             <p>To get started, click the link below to log in and access your dashboard:</p>
 

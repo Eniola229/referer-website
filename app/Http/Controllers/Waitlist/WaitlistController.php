@@ -58,7 +58,7 @@ class WaitlistController extends Controller
         // If there is a referer, update the referer's balance
         if (!empty($user->referer)) {
             $refererUser = User::where('unique_id', $request->referer)->firstOrFail();
-            $refererUser->balance += 30.0;
+            $refererUser->balance += 50.0;
             $refererUser->save();
         }
 
