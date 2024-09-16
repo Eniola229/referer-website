@@ -102,14 +102,15 @@
                 <li>
                     <div>
                         <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                        <p class="list-text">4. You will be redirected to your dashboard where you will receive a unique ID</p>
+                        <p class="list-text">4. Your will be redirected to your dashboard were you will receive a referer link</p>
                     </div>
                 </li>
                 <li>
                     <div>
                         <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                        <p class="list-text">5.Share your unique ID to
-       Family and friends </p>
+                        <p class="list-text">5.Copy and Share your
+        Referer link to
+       Family and friends  </p>
                     </div>
                 </li>
                 <li>
@@ -127,7 +128,7 @@
                 <li>
                     <div>
                         <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                        <p class="list-text">8. The minimum you can start withdrawing is one thousand naira on the dashboard.</p>
+                        <p class="list-text">8. The minimum withdrawal amount on the dashboard is one thousand naira.</p>
                     </div>
                 </li>
                 <li>

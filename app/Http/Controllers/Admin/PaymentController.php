@@ -48,7 +48,8 @@ class PaymentController extends Controller
         $referenceCode = "BANK-{$randomDigits}-{$randomLetters}";
 
             if ($request->hasFile('receipt')) {
-                $uploadCloudinary = cloudinary()->upload(
+                $uploadCloudinary = cloudinary()->upload( 
+
                     $request->file('receipt')->getRealPath(),
                     [
                         'folder' => 'africtv/referer/payment',
@@ -59,11 +60,9 @@ class PaymentController extends Controller
                         ]
                     ]
                 );
+
                 $imageUrl = $uploadCloudinary->getSecurePath();
                 $imageId = $uploadCloudinary->getPublicId();
-            } else {
-                $imageUrl = "no file uploaded";
-                $imageId = "no file uploaded";
             }
 
 
