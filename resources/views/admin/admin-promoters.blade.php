@@ -96,9 +96,9 @@
                       </td>
                        <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> 
-                          <a class="nav-link" href="{{ route('promoter-info', $user->id) }}">
-                          <button class="btn btn-primary">Veiw</button> 
-                        </a>
+                          <a class="nav-link" href="{{ url('promoter-info', [$user->id]) }}">
+                              <button class="btn btn-primary">View</button>
+                          </a>
                         </span>
                       </td>
                     </tr>
