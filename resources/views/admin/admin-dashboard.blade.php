@@ -133,6 +133,7 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Email</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Mobile</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Joined</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -161,6 +162,9 @@
                           </div>
                         </div>
                       </td>
+                       <a class="nav-link" href="{{ route('promoter-info', $user->id) }}">
+                          <button class="btn btn-primary">Veiw</button> 
+                        </a>
                     </tr>
                     @endforeach
                     @else
