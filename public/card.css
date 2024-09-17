@@ -1,0 +1,32 @@
+    .banner {
+        background-color: #f8f9fa;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    .follow-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .social-icons i {
+        font-size: 22px; /* Increased size for visibility */
+        transition: color 0.3s ease;
+    }
+    .social-icons a {
+        color: #27AE60; /* Theme color */
+        text-decoration: none;
+    }
+    .social-icons a:hover {
+        color: #555;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .banner {
+            text-align: center;
+            padding: 10px 15px;
+        }
+        .social-icons {
+            justify-content: center;
+        }
+    }

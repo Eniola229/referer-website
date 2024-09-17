@@ -156,7 +156,7 @@
                 <li>
                     <div>
                         <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                        <p class="list-text">- Receive N30 for each</p>
+                        <p class="list-text">- Receive N50 for each</p>
                     </div>
                 </li>
 

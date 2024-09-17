@@ -17,6 +17,7 @@
   <link href="pro/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="pro/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link id="pagestyle" href="card.css" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -73,8 +74,22 @@
             </div>
           </div>
         </div>
+            <div class="col-md-8 col-12 my-auto text-end">
+              <div class="banner float-lg-end pe-lg-4 pe-2">
+                  <p class="mb-0 text-secondary follow-text">Follow us on:</p>
+                  <div class="social-icons d-flex justify-content-end">
+                      <a href="https://web.facebook.com/people/AfricTv/61561466822916/" target="_blank" class="mx-2">
+                          <i class="fa fa-facebook text-secondary" aria-hidden="true"></i>
+                      </a>
+                      <a href="https://x.com/TvAfric47294" target="_blank" class="mx-2">
+                          <i class="fa fa-twitter text-secondary" aria-hidden="true"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
       </div>
-      
+
+
       <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
           <div class="card">
