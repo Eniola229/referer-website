@@ -62,7 +62,9 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Name</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Referer Code</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Mobile</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Balace</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Joined</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
@@ -82,8 +84,14 @@
                       <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{ $user->email }} </span>
                       </td>
+                     <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->unique_id }} </span>
+                      </td>
                        <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{ $user->mobile }} </span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->balance }} </span>
                       </td>
                       <td class="align-middle">
                         <div class="progress-wrapper w-75 mx-auto">

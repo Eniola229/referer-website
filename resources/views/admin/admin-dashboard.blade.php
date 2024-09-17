@@ -131,7 +131,9 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Name</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Referer Code</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Mobile</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promoter Balace</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Joined</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
@@ -139,9 +141,10 @@
                   <tbody>
                       @if($users->isNotEmpty())
                             @foreach($users as $user)
-                    <tr>
+                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
+                          
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
                           </div>
@@ -150,8 +153,14 @@
                       <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{ $user->email }} </span>
                       </td>
+                     <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->unique_id }} </span>
+                      </td>
                        <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{ $user->mobile }} </span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->balance }} </span>
                       </td>
                       <td class="align-middle">
                         <div class="progress-wrapper w-75 mx-auto">
@@ -162,10 +171,12 @@
                           </div>
                         </div>
                       </td>
-                      <td>
-                         <a class="nav-link" href="{{ url('promoter-info', $user->id) }}">
+                       <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> 
+                          <a class="nav-link" href="{{ url('promoter-info', $user->id) }}">
                               <button class="btn btn-primary">View</button>
                           </a>
+                        </span>
                       </td>
                     </tr>
                     @endforeach

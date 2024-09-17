@@ -62,6 +62,7 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Name</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Refered By</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date and Time Joined</th>
                     </tr>
                   </thead>
@@ -79,6 +80,9 @@
                       </td>
                       <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{ $user->email }} </span>
+                      </td>
+                         <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ $user->referer }} </span>
                       </td>
                       <td class="align-middle">
                         <div class="progress-wrapper w-75 mx-auto">

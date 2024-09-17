@@ -74,12 +74,7 @@
           </div>
         </div>
       </div>
-        <div class="alert alert-success mb-md-5" style="color: white">
-                <strong>Hurray</strong>
-                <p>Big News from AfricTv :<strong>Rewards just got a boost</strong>  
-                </p>
-                <p>AfricTv has boosted the reward amount  from 30 naira to 50 naira per person!</p>
-          </div>
+      
       <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
           <div class="card">
