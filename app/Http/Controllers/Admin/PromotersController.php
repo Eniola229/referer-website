@@ -51,4 +51,25 @@ class PromotersController extends Controller
         }
     }
 
+    public function destroy(Request $request)
+    {
+        // Validate that 'user_id' is present in the request
+        $request->validate([
+            'user_id' => 'required|exists:waitlists,id',
+        ]);
+
+        // Find the user by ID
+        $user = Waitlist::find($request->input('user_id'));
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'Waitlist not found.');
+        }
+
+        // Delete the user
+        $user->delete();
+
+        // Redirect with success message
+        return redirect()->back()->with('success', 'Waitlist deleted successfully.');
+    }
+
 }
