@@ -88,7 +88,7 @@ class AuthAdminController extends Controller
      */
     public function dashboard()
     {
-        $users = User::all();
+        $users = User::orderBy('created_at', 'desc')->get();
         $waitlistCount = Waitlist::all()->count();
         $usersCount = User::all()->count();
          $totalBalance = User::sum('balance');

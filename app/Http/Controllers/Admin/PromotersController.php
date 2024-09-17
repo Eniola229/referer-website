@@ -14,7 +14,7 @@ class PromotersController extends Controller
 {
     public function view()
     {
-        $users = User::all();
+        $users = User::orderBy('created_at', 'desc')->get();
         $usersCount = User::all()->count();
         if (Auth::guard('admins')->check()) {
            return view('admin.admin-promoters', compact('users', 'usersCount'));
@@ -22,7 +22,7 @@ class PromotersController extends Controller
     }
     public function waitlist()
     {
-        $users = Waitlist::all();
+        $users = Waitlist::orderBy('created_at', 'desc')->get();
         $usersCount = Waitlist::all()->count();
         if (Auth::guard('admins')->check()) {
            return view('admin.admin-waitlist', compact('users', 'usersCount'));
