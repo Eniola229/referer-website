@@ -18,11 +18,12 @@ class PaymentController extends Controller
         {
             $requests = RequestMoney::with(['user', 'withdraw'])->get();
             $requestsCount = RequestMoney::all()->count();
+            $paymentsCount = Payment::all()->count();
 
-           $payments = Payment::with('user')->get();
+            $payments = Payment::with('user')->get();
 
             if (Auth::guard('admins')->check()) {
-               return view('admin.admin-payment', compact('payments', 'requestsCount', 'requests'));
+               return view('admin.admin-payment', compact('payments', 'requestsCount', 'requests', 'paymentsCount'));
             }
         }
 

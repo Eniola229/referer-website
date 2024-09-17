@@ -182,7 +182,13 @@
             </div>
           </div>
              <hr>
-
+             <div class="col-lg-6 col-7">
+                  <h6>Total Payment Made</h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1"> count Payment Made</span> so far {{ $paymentsCount }}
+                  </p>
+                </div>
               <div class="card-body px-0 pb-2">
               <div class="table-responsive">
                 <table class="table align-items-center mb-0">
