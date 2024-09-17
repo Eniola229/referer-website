@@ -78,7 +78,7 @@
                 <strong>Hurray</strong>
                 <p>Big News from AfricTv :<strong>Rewards just got a boost</strong>  
                 </p>
-                <p>We've got a surprise for you! AfricTv has boosted the reward amount  from 30 naira to 50 naira per person!</p>
+                <p>AfricTv has boosted the reward amount  from 30 naira to 50 naira per person!</p>
           </div>
       <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
