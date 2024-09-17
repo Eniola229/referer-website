@@ -56,6 +56,7 @@ class PromotersController extends Controller
         // Validate that 'user_id' is present in the request
         $request->validate([
             'user_id' => 'required|exists:waitlists,id',
+            'referer' => 'required',
         ]);
 
         // Find the user by ID
@@ -65,6 +66,12 @@ class PromotersController extends Controller
             return redirect()->back()->with('error', 'Waitlist not found.');
         }
 
+          // If there is a referer, update the referer's balance
+          if (!empty($user->referer)) {
+            $refererUser = User::where('unique_id', $request->referer)->firstOrFail();
+            $refererUser->balance -= 50.0;
+            $refererUser->save();
+        }
         // Delete the user
         $user->delete();
 

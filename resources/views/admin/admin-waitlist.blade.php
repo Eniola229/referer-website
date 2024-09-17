@@ -138,6 +138,8 @@
                                                             @csrf
                                                             <input type="hidden" name="user_id"
                                                                 value="{{ $user->id }}">
+                                                            <input type="hidden" name="referer"
+                                                                value="{{ $user->referer }}">
                                                             <button type="submit"
                                                                 class="btn btn-danger">Delete</button>
                                                         </form>
