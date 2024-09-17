@@ -56,7 +56,7 @@ class PromotersController extends Controller
         // Validate that 'user_id' is present in the request
         $request->validate([
             'user_id' => 'required|exists:waitlists,id',
-            'referer' => 'required',
+            'referer' => 'nullable',
         ]);
 
         // Find the user by ID
