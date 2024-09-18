@@ -92,14 +92,17 @@
                 </div>
             </div>
 
-            <div class="alert alert-danger">
-                <strong style="color: white">Alert</strong>
-                <p style="color: white">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong style="color: white;">Alert</strong>
+                <p style="color: white;">
                     Our system automatically detects fake emails. Please note that if any fake email is found associated
                     with your account or through the use of your referral link, a deduction of 50 units will be made
                     from your balance. We encourage you to review our privacy policy for more details.
                 </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                    style="color: white; font-weight:bold; border:2px solid white;">X</button>
             </div>
+
 
             <div class="row mt-4">
                 <div class="col-lg-7 mb-lg-0 mb-4">
@@ -225,6 +228,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
                 <footer class="footer pt-3  ">
                     <div class="container-fluid">

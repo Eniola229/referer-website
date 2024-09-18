@@ -35,26 +35,37 @@ class WithdrawController extends Controller
         // Validate the form data
         $validator = Validator::make($request->all(), [
             'account_name' => 'required|string|max:255',
-            'account_number' => 'required|max:15|unique:withdraws,account_number', 
+            'account_number' => 'required|numeric|max:999999999999999', 
             'bank_name' => 'required|string|max:255',
         ]);
-
+    
         // Check if validation fails
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
-        // Create and store the user
-        $user = Withdraw::updateOrCreate([
-            'account_name' => $request->account_name,
-            'account_number' => $request->account_number,
-            'bank_name' => $request->bank_name,
-            'user_id' => Auth::user()->id,
-        ]);
-
-        // Redirect or return success message
-        return redirect()->back()->with('success', 'Account Detials successfully added!');
+    
+        $userId = Auth::user()->id;
+    
+        // Find the withdraw record for the user, if exists, delete it
+        $existingWithdraw = Withdraw::where('user_id', $userId)->first();
+        if ($existingWithdraw) {
+            $existingWithdraw->delete();
+        }
+    
+        // Create or update the user’s withdraw details
+        Withdraw::updateOrCreate(
+            ['user_id' => $userId], 
+            [
+                'account_name' => $request->account_name,
+                'account_number' => $request->account_number,
+                'bank_name' => $request->bank_name
+            ] 
+        );
+    
+        // Redirect with success message
+        return redirect()->back()->with('success', 'Account details successfully added!');
     }
+    
 
     public function requestPayment(Request $request)
     {
