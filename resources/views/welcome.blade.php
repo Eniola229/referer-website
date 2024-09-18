@@ -87,11 +87,11 @@
                 <label class="lable" for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" required><br>
                 @error('email')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span style="color: red; font-weight: bold; font-size: 14px;">{{ $message }}</span>
                 @enderror
+
                 <label class="lable" for="referer">Referer Code (Optional)</label>
-                <label class="lable" for="referer">Referer Close for Today</label>
-                {{-- <input type="text" id="referer" name="referer" placeholder="Referer Code"><br> --}}
+                <input type="text" id="referer" name="referer" placeholder="Referer Code"><br>
                 @error('referer')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

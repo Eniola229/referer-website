@@ -58,7 +58,7 @@ Route::get('admin-waitlist', [PromotersController::class, 'waitlist'])->name('ad
 Route::get('admin-payment', [PaymentController::class, 'view'])->name('admin-payment');
 Route::post('admin-make-payment', [PaymentController::class, 'payment'])->name('admin-make-payment');
 Route::get('promoter-info/{id}', [PromotersController::class, 'promoters'])->name('promoter-info');
-Route::post('/waitlist/delete', [PromotersController::class, 'destroy'])->name('waitlist.destroy');
+Route::post('delete-waitlist', [PromotersController::class, 'destroy'])->name('waitlist.destroy');
 
 
 
