@@ -91,7 +91,8 @@
                 @enderror
 
                 <label class="lable" for="referer">Referer Code (Optional)</label>
-                <input type="text" id="referer" name="referer" placeholder="Referer Code"><br>
+                <label class="lable" for="referer" style="color: red;">Referer program closed for now</label>
+                <input type="text" id="referer" name="referer" placeholder="Referer Code" disabled><br>
                 @error('referer')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
